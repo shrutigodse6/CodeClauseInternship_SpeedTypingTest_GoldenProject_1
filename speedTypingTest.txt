@@ -1,0 +1,39 @@
+#Done BY: Shruti Dilip Godse
+
+import time
+
+def speed_typing_test(text):
+    print("Type the following text as fast as you can:")
+    print(text)
+    
+    input("Press Enter when you're ready to start...")
+    
+    start_time = time.time()
+    user_input = input("Type here: ")
+    end_time = time.time()
+    
+    elapsed_time = end_time - start_time
+    words_per_minute = (len(text.split()) / elapsed_time) * 60
+    
+    print("\nTime taken: {:.2f} seconds".format(elapsed_time))
+    print("Words per minute: {:.2f}".format(words_per_minute))
+    
+    correct_words = sum(w1 == w2 for w1, w2 in zip(text.split(), user_input.split()))
+    accuracy = (correct_words / len(text.split())) * 100
+    
+    print("Accuracy: {:.2f}%".format(accuracy))
+
+if __name__ == "__main__":
+    text_to_type = "This is a simple speed typing test. Try to type this accurately and as fast as you can."
+    speed_typing_test(text_to_type)
+
+Output:
+
+Type the following text as fast as you can:
+This is a simple speed typing test. Try to type this accurately and as fast as you can.
+Press Enter when you're ready to start...
+Type here: this is a simple typing test. try to type this accurately and as fast as ypu can.
+Time taken: 35.29 seconds
+Words per minute: 30.61
+Accuracy: 16.67%
+> 
